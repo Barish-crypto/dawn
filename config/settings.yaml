@@ -1,0 +1,75 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#                           Application Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Master configuration file for the application's core services and functionality.
+# Includes settings for multi-threading, email handling, and security features.
+
+# ┌────────────────────────┐
+# │     Core Settings      │
+# └────────────────────────┘
+# Foundation settings that determine the application's basic operational parameters
+
+threads: 3 # Controls parallel processing capacity | Higher values increase performance but consume more resources
+
+use_proxy_for_imap: false # Enables secure proxy routing for IMAP connections | Recommended for enhanced privacy and security
+
+keepalive_interval: 180 # Connection monitoring frequency (seconds) | Ensures stable network connectivity
+
+referral_codes: # Marketing tracking codes
+  - epkwji7w # Add multiple entries for different campaigns
+
+# ┌────────────────────────┐
+# │  Email Redirection     │
+# └────────────────────────┘
+# Configuration for automated email forwarding and handling
+
+redirect_settings:
+  enabled: false # Main switch for email redirection system
+  email: "" # Target email for redirected messages
+  password: "" # Access credentials (use secure storage!)
+  imap_server: "" # Mail server address
+  use_proxy: true # use proxy for mining
+
+# ┌────────────────────────┐
+# │   CAPTCHA Services     │
+# └────────────────────────┘
+# Integration settings for automated CAPTCHA resolution
+
+captcha_module: 2captcha # CAPTCHA service selection: 2captcha, anticaptcha
+two_captcha_api_key: d383acdba0d44b6c6ca61f5d8846260f # Authentication key for 2captcha | https://2captcha.com/
+anti_captcha_api_key: xxx # Authentication key for anticaptcha | https://anti-captcha.com/
+
+# ┌────────────────────────┐
+# │    Startup Timing      │
+# └────────────────────────┘
+# Application initialization delay configuration
+
+delay_before_start:
+  min: 2 # Minimum delay duration (seconds)
+  max: 5 # Maximum delay duration (seconds) | System will randomly select a value in this range
+
+# ┌────────────────────────┐
+# │ Mail Server Directory  │
+# └────────────────────────┘
+# Comprehensive IMAP server mappings for supported email providers
+
+imap_settings:
+  # Global Services
+  gmail.com: imap.gmail.com # Google Mail (SSL required)
+  yahoo.com: imap.mail.yahoo.com # Yahoo Mail (SSL required)
+  icloud.com: imap.mail.me.com # Apple iCloud (2FA might be needed)
+
+  # Russian Services
+  mail.ru: imap.mail.ru # Mail.ru service
+
+  # European Providers
+  gmx.com: imap.gmx.com # GMX International
+  gmx.net: imap.gmx.net # GMX Germany - Primary
+  gmx.de: imap.gmx.net # GMX Germany - Secondary
+
+  # Polish Services
+  onet.pl: imap.poczta.onet.pl # Onet Mail - Primary
+  onet.com.pl: imap.poczta.onet.pl # Onet Mail - Secondary
+  op.pl: imap.poczta.onet.pl # Onet Mail - Legacy
+  onet.eu: imap.poczta.onet.pl # Onet Mail - European
+  gazeta.pl: imap.gazeta.pl # Gazeta Mail Service
