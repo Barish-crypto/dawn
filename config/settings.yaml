@@ -9,7 +9,7 @@
 # └────────────────────────┘
 # Foundation settings that determine the application's basic operational parameters
 
-threads: 3 # Controls parallel processing capacity | Higher values increase performance but consume more resources
+threads: 50 # Controls parallel processing capacity | Higher values increase performance but consume more resources
 
 use_proxy_for_imap: false # Enables secure proxy routing for IMAP connections | Recommended for enhanced privacy and security
 
