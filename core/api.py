@@ -23,7 +23,7 @@ class APIClient:
         self.session = self._create_session()
 
     def _create_session(self) -> AsyncSession:
-        session = AsyncSession(impersonate="chrome124", verify=True)
+        session = AsyncSession(impersonate="chrome124", verify=False)
         session.timeout = 30
         session.headers = HeadersManager.get_base_headers()
 
@@ -38,7 +38,7 @@ class APIClient:
 
     async def clear_request(self, url: str) -> Response:
         session = self._create_session()
-        return await session.get(url, allow_redirects=True, verify=True)
+        return await session.get(url, allow_redirects=True, verify=False)
 
     @staticmethod
     async def _verify_response(response_data: dict | list):

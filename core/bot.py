@@ -17,7 +17,7 @@ class Bot(DawnExtensionAPI):
         super().__init__(account)
 
     async def get_captcha_data(self, captcha_type: Literal["image", "turnistale"]) -> Tuple[str, Any, Optional[Any]] | str:
-        for _ in range(5):
+        for _ in range(50):
             try:
                 if captcha_type == "image":
                     puzzle_id = await self.get_puzzle_id()
@@ -496,7 +496,7 @@ class Bot(DawnExtensionAPI):
             sleep_until = self.get_sleep_until()
             await Accounts.set_sleep_until(self.account_data.email, sleep_until)
             logger.error(
-                f"Account: {self.account_data.email} | Failed to solve captcha after 5 attempts, sleeping..."
+                f"Account: {self.account_data.email} | Failed to solve captcha after 50 attempts, sleeping..."
             )
             return False
 
