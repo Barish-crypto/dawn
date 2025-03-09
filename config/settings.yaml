@@ -9,11 +9,11 @@
 # └────────────────────────┘
 # Foundation settings that determine the application's basic operational parameters
 
-threads: 50 # Controls parallel processing capacity | Higher values increase performance but consume more resources
+threads: 15 # Controls parallel processing capacity | Higher values increase performance but consume more resources
 
 use_proxy_for_imap: false # Enables secure proxy routing for IMAP connections | Recommended for enhanced privacy and security
 
-keepalive_interval: 180 # Connection monitoring frequency (seconds) | Ensures stable network connectivity
+keepalive_interval: 100 # Connection monitoring frequency (seconds) | Ensures stable network connectivity
 
 referral_codes: # Marketing tracking codes
   - epkwji7w # Add multiple entries for different campaigns
@@ -45,8 +45,8 @@ anti_captcha_api_key: xxx # Authentication key for anticaptcha | https://anti-ca
 # Application initialization delay configuration
 
 delay_before_start:
-  min: 2 # Minimum delay duration (seconds)
-  max: 5 # Maximum delay duration (seconds) | System will randomly select a value in this range
+  min: 0 # Minimum delay duration (seconds)
+  max: 0 # Maximum delay duration (seconds) | System will randomly select a value in this range
 
 # ┌────────────────────────┐
 # │ Mail Server Directory  │
