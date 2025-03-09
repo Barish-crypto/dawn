@@ -23,7 +23,7 @@ class APIClient:
         self.session = self._create_session()
 
     def _create_session(self) -> AsyncSession:
-        session = AsyncSession(impersonate="chrome134", verify=False)
+        session = AsyncSession(impersonate="chrome129", verify=False)
         session.timeout = 60
         session.headers = HeadersManager.get_base_headers()
 
